@@ -5,7 +5,7 @@ function InputForm({ inputController }) {
 
     const queryHandler = () => {
         const inputTxt = inputRef.current.value;
-        console.log("쿼리", inputTxt);
+
         inputController(inputTxt);
         inputRef.current.value = "";
     };

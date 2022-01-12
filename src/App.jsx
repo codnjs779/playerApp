@@ -9,7 +9,7 @@ function App() {
     const [select, setSelect] = useState();
 
     const selectedHandler = (selected) => {
-        console.log("app 선택항목", selected);
+        setSelect(selected);
     };
     const inputController = (query) => {
         axios
@@ -39,8 +39,8 @@ function App() {
     return (
         <>
             <InputForm inputController={inputController} />
-            <Detail />
-            <VideoList videoList={video} selectedHandler={selectedHandler} />
+            {select && <Detail select={select} />}
+            <VideoList videoList={video} onSelected={selectedHandler} />
         </>
     );
 }

@@ -1,15 +1,11 @@
 import React from "react";
 
-function VideoItem(list, onSelected) {
-    const medium = list.list.snippet.thumbnails.medium;
-    const info = list.list.snippet;
+function VideoItem({ list, onSelected }) {
+    const medium = list.snippet.thumbnails.medium;
+    const info = list.snippet;
 
     return (
-        <li
-            onClick={() => {
-                console.log("hello", onSelected);
-            }}
-        >
+        <li onClick={() => onSelected(list)}>
             <div>
                 {" "}
                 <img src={medium.url} width={medium.width} height={medium.height} alt="" />

@@ -1,10 +1,7 @@
 import React from "react";
 import VideoItem from "./VideoItem";
 
-function VideoList({ videoList, selectedHandler }) {
-    const onSelected = () => {
-        selectedHandler("hellddo");
-    };
+function VideoList({ videoList, onSelected }) {
     return (
         <ul>
             {videoList &&
