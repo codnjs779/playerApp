@@ -1,7 +1,6 @@
 .videoItem {
     display: flex;
 
-    flex-wrap: wrap;
     box-sizing: border-box;
     border: solid 1px gray;
     margin: 3px;
@@ -15,8 +14,7 @@
 }
 
 .channelInfo {
-    width: 250px;
-
+    width: 200px;
     margin-left: 10px;
 }
 .title {
@@ -27,4 +25,9 @@
 }
 .channelTitle {
     color: rgb(138, 137, 137);
+}
+@media screen and (max-width: 768px) {
+    .channelInfo {
+        flex-wrap: wrap;
+    }
 }

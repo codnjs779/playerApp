@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import styles from "./VideoItem.module.css";
 
-function VideoItem({ list, onSelected }) {
+const VideoItem = memo(({ list, onSelected }) => {
     const medium = list.snippet.thumbnails.medium;
     const info = list.snippet;
 
@@ -17,6 +17,6 @@ function VideoItem({ list, onSelected }) {
             </div>
         </li>
     );
-}
+});
 
 export default VideoItem;

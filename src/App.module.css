@@ -18,3 +18,9 @@
 .content {
     display: flex;
 }
+
+@media screen and (max-width: 768px) {
+    .app_section {
+        flex-direction: column;
+    }
+}

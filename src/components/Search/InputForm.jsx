@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, memo } from "react";
 import styles from "./InputForm.module.css";
 
-function InputForm({ inputController }) {
+const InputForm = memo(({ inputController }) => {
     const inputRef = useRef();
 
     const queryHandler = () => {
@@ -36,6 +36,6 @@ function InputForm({ inputController }) {
             </div>
         </div>
     );
-}
+});
 
 export default InputForm;
