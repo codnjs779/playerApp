@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import styles from "./InputForm.module.css";
 
 function InputForm({ inputController }) {
     const inputRef = useRef();
@@ -19,21 +20,21 @@ function InputForm({ inputController }) {
     };
 
     return (
-        <>
-            <div>
-                <div>
+        <div className={styles.upBox}>
+            <div className={styles.logoBox}>
+                <div className={styles.logo}>
                     <i className="fas fa-video"></i>
                 </div>
-                <div>video</div>
+                <div className={styles.logoName}>video</div>
             </div>
 
-            <div>
-                <input type="search" placeholder="Search.." onKeyPress={onKeyPress} ref={inputRef} />
-                <button onClick={onInput} type="submit">
+            <div className={styles.inputBox}>
+                <input className={styles.input} type="search" placeholder="Search.." onKeyPress={onKeyPress} ref={inputRef} />
+                <button className={styles.inputButton} onClick={onInput} type="submit">
                     <i className="fas fa-search"></i>
                 </button>
             </div>
-        </>
+        </div>
     );
 }
 

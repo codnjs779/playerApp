@@ -1,18 +1,19 @@
 import React from "react";
+import styles from "./VideoItem.module.css";
 
 function VideoItem({ list, onSelected }) {
     const medium = list.snippet.thumbnails.medium;
     const info = list.snippet;
 
     return (
-        <li onClick={() => onSelected(list)}>
-            <div>
+        <li className={styles.videoItem} onClick={() => onSelected(list)}>
+            <div className={styles.thumbImg}>
                 {" "}
                 <img src={medium.url} width={medium.width} height={medium.height} alt="" />
             </div>
-            <div>
-                <div>{info.title}</div>
-                <div>{info.channelTitle}</div>
+            <div className={styles.channelInfo}>
+                <div className={styles.title}>{info.title}</div>
+                <div className={styles.channelTitle}>{info.channelTitle}</div>
             </div>
         </li>
     );

@@ -1,0 +1,5 @@
+.videoList {
+    width: inherit;
+    display: flex;
+    flex-wrap: wrap;
+}

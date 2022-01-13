@@ -3,7 +3,7 @@ import styles from "./App.module.css";
 import axios from "axios";
 import VideoList from "./components/Popular/VideoList";
 import InputForm from "./components/Search/InputForm";
-import Detail from "./components/Detail";
+import Detail from "./components/Detail/Detail";
 function App() {
     const [video, setVideo] = useState();
     const [select, setSelect] = useState();
@@ -13,7 +13,7 @@ function App() {
     };
     const inputController = (query) => {
         axios
-            .get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=${query}&key=AIzaSyDFxKWeMhElJnrL0VGaIpPdlbO_tMgcXWs`)
+            .get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&q=${query}&key=AIzaSyDFxKWeMhElJnrL0VGaIpPdlbO_tMgcXWs`)
             .then(({ data }) => {
                 return data.items.map((item) => ({ ...item, id: item.id.videoId }));
             })
@@ -39,8 +39,17 @@ function App() {
     return (
         <>
             <InputForm inputController={inputController} />
-            {select && <Detail select={select} />}
-            <VideoList videoList={video} onSelected={selectedHandler} />
+            <section className={styles.app_section}>
+                {select && (
+                    <div className={styles.app_detail}>
+                        <Detail select={select} />
+                    </div>
+                )}
+
+                <div className={styles.app_videoList}>
+                    <VideoList videoList={video} onSelected={selectedHandler} />
+                </div>
+            </section>
         </>
     );
 }

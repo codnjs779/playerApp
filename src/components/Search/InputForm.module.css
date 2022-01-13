@@ -1,0 +1,40 @@
+.upBox {
+    background-color: #b551ef;
+    display: flex;
+}
+.logoBox {
+    display: flex;
+
+    margin-left: 20px;
+}
+
+.logo {
+    margin-right: 20px;
+    font-size: 40px;
+}
+
+.logoName {
+    font-size: 35px;
+    margin-right: 20px;
+}
+
+.inputBox {
+    width: 80%;
+    margin-top: 10px;
+    text-align: left;
+}
+.input {
+    width: inherit;
+    height: 30px;
+}
+.inputButton {
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 2px;
+    border: none;
+}
+.inputButton:hover {
+    background-color: lavenderblush;
+    color: #b551ef;
+    cursor: pointer;
+}

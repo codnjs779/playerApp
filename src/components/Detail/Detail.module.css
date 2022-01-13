@@ -1,0 +1,15 @@
+.videoInfo {
+    margin-left: 20px;
+}
+.title {
+    font-size: 40px;
+}
+
+.channelTitle {
+    font-size: 20px;
+    color: gray;
+}
+.description {
+    line-height: 25px;
+    margin: 10px;
+}
