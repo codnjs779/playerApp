@@ -1,9 +1,8 @@
-* {
+.app {
     max-width: 80rem;
     list-style: none;
     box-sizing: border-box;
 }
-
 .app_section {
     display: flex;
 }
@@ -14,4 +13,8 @@
 
 .app_videoList {
     flex: 1 1 30%;
+}
+
+.content {
+    display: flex;
 }

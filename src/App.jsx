@@ -20,6 +20,7 @@ function App() {
             .then((items) => {
                 console.log("items", items);
                 setVideo(items);
+                setSelect(null);
             })
             .catch((e) => {
                 console.log(e, "error!");
@@ -37,7 +38,7 @@ function App() {
             });
     }, []);
     return (
-        <>
+        <div className={styles.app}>
             <InputForm inputController={inputController} />
             <section className={styles.app_section}>
                 {select && (
@@ -50,7 +51,7 @@ function App() {
                     <VideoList videoList={video} onSelected={selectedHandler} />
                 </div>
             </section>
-        </>
+        </div>
     );
 }
 
