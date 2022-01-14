@@ -1,6 +1,6 @@
 # Title
 
-유튜브Api 활용한 인기동영상, 검색기능 페이지
+<h2>유튜브Api 활용한 인기동영상, 검색기능 페이지</h2>
 
 ## Install
 
@@ -20,8 +20,6 @@ yarn start
 ```
 
 ## 자료구조
-
-<img src="D:\YoutubeApp\src\images\folder구조.png"/>
 
 ## 컴포넌트
 
@@ -65,7 +63,10 @@ yarn start
 > useEffect 함수를 사용한 이유? 첫 화면의 상태를 관리하는 함수이기 때문에 mount되면 실행되야 하기 때문.
 
 **📂.env**
+
+```
 REACT_APP_YOUTUBE_API_KEY=[발급받은 키]
+```
 
 > 키값이 노출되면 정보가 노출될 위험이 있으니 키값을 .env파일에 꼭 REACT*APP*를 써서 입력해준다음(리액트가 정한 법칙) 해당 파일을 gitignore에 추가.
 
