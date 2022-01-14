@@ -6,41 +6,29 @@ import InputForm from "./components/Search/InputForm";
 import Detail from "./components/Detail/Detail";
 import Loadingspinner from "./components/Loading/Loadingspinner";
 
-function App() {
+function App({ youtube }) {
     const [video, setVideo] = useState();
     const [select, setSelect] = useState();
     const [loading, setLoading] = useState(false);
-
+    console.log("popo", youtube.mostPopular);
     const selectedHandler = (selected) => {
         setSelect(selected);
     };
-    const inputController = useCallback((query) => {
-        setLoading(true);
-        axios
-            .get(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&type=video&q=${query}&key=AIzaSyDFxKWeMhElJnrL0VGaIpPdlbO_tMgcXWs`)
-            .then(({ data }) => {
-                return data.items.map((item) => ({ ...item, id: item.id.videoId }));
-            })
-            .then((items) => {
-                setVideo(items);
-                setLoading(false);
-                setSelect(null);
-            })
-            .catch((e) => {
-                console.log(e, "error!");
-            });
-    }, []);
+    const inputController = useCallback(
+        (query) => {
+            setSelect(null);
+            youtube
+                .inputController(query) //
+                .then((videos) => setVideo(videos));
+        },
+        [youtube]
+    );
 
     useEffect(() => {
-        axios
-            .get("https://youtube.googleapis.com/youtube/v3/videos?part=snippet&chart=mostPopular&maxResults=25&key=AIzaSyDFxKWeMhElJnrL0VGaIpPdlbO_tMgcXWs")
-            .then(({ data }) => {
-                setVideo(data.items);
-            })
-            .catch((e) => {
-                console.log(e, "error");
-            });
-    }, []);
+        youtube
+            .mostPopular() //
+            .then((videos) => setVideo(videos));
+    }, [youtube]);
     return (
         <div className={styles.app}>
             <InputForm inputController={inputController} />
