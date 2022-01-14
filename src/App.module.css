@@ -5,6 +5,7 @@
 }
 .app_section {
     display: flex;
+    width: inherit;
 }
 
 .app_detail {

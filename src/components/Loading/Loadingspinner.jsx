@@ -7,7 +7,6 @@ function Loadingspinner() {
         <section className={styles.loading}>
             <div className={styles.spinner}>
                 <img src={loadingImg} alt="loading" />
-                <div>로딩중</div>
             </div>
         </section>
     );

@@ -1,11 +1,9 @@
 .videoItem {
     display: flex;
-
     box-sizing: border-box;
     border: solid 1px gray;
     margin: 3px;
-    margin-right: 10px;
-    position: inherit;
+
     transition: transform 100ms ease-in-out;
 }
 
@@ -14,13 +12,14 @@
 }
 
 .channelInfo {
-    width: 200px;
+    width: 180px;
+    overflow: hidden;
     margin-left: 10px;
 }
 .title {
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
-    margin-top: 20px;
+    margin-top: 10px;
     margin-bottom: 10px;
 }
 .channelTitle {

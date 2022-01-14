@@ -1,10 +1,6 @@
 .loading {
     position: absolute;
-    border-radius: 50%;
-    background-color: white;
-    left: 600px;
-    top: 200px;
-}
-
-.spinner {
+    width: 50px;
+    margin-left: 100px;
+    z-index: 1;
 }
