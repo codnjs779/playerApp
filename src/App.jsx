@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import styles from "./App.module.css";
-import axios from "axios";
 import VideoList from "./components/Popular/VideoList";
 import InputForm from "./components/Search/InputForm";
 import Detail from "./components/Detail/Detail";
@@ -10,25 +9,30 @@ function App({ youtube }) {
     const [video, setVideo] = useState();
     const [select, setSelect] = useState();
     const [loading, setLoading] = useState(false);
-    console.log("popo", youtube.mostPopular);
+
     const selectedHandler = (selected) => {
         setSelect(selected);
     };
     const inputController = useCallback(
         (query) => {
+            setLoading(true);
             setSelect(null);
             youtube
                 .inputController(query) //
-                .then((videos) => setVideo(videos));
+                .then((videos) => {
+                    setVideo(videos);
+                    setLoading(false);
+                });
         },
         [youtube]
     );
 
     useEffect(() => {
-        youtube
-            .mostPopular() //
-            .then((videos) => setVideo(videos));
+        youtube.mostPopular().then((videos) => {
+            setVideo(videos);
+        });
     }, [youtube]);
+
     return (
         <div className={styles.app}>
             <InputForm inputController={inputController} />

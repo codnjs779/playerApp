@@ -2,8 +2,8 @@ class Youtube {
     constructor(httpClient) {
         this.youtube = httpClient;
     }
+
     async mostPopular() {
-        console.log("this.youtube", this.youtube);
         const response = await this.youtube.get("videos", {
             params: {
                 part: "snippet",
@@ -11,7 +11,6 @@ class Youtube {
                 maxResults: 25,
             },
         });
-        console.log("this.youtube", response);
         return response.data.items;
     }
 
@@ -27,4 +26,5 @@ class Youtube {
         return response.data.items.map((item) => ({ ...item, id: item.id.videoId }));
     }
 }
+
 export default Youtube;
